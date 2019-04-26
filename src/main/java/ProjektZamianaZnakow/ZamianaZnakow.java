@@ -89,6 +89,14 @@ public class ZamianaZnakow extends Application {
 
                     Collection files = FileUtils.listFiles(root, null, true);
 
+
+                    Files.walk(Paths.get("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow"))
+                            .filter(p -> p.toString().endsWith(".ext"))
+                            .map(p -> p.getParent().getParent())
+                            .distinct()
+                            .forEach(System.out::println);
+
+
                     for (Iterator iterator = files.iterator(); iterator.hasNext();) {
                         File file = (File) iterator.next();
                         if (file.getName().equals(filePath))
@@ -98,6 +106,7 @@ public class ZamianaZnakow extends Application {
                             outStream.writeUTF(contents2);
                             outStream.close();
                         }
+
                     }
 
                 } catch (Exception e3) {

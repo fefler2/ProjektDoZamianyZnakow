@@ -80,7 +80,7 @@ public class ZamianaZnakow extends Application {
                 String contents2 = contents.replace(newString, oldString);
                 System.out.println(contents2);
 
-                File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow");
+                File root = new File("C:\\");
 
 
 
@@ -91,7 +91,7 @@ public class ZamianaZnakow extends Application {
 
 
                     Files.walk(Paths.get("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow"))
-
+                            .filter(p -> p.toString().equals(filePath))
                             .map(p -> p.getParent().getParent())
                             .distinct()
                             .forEach(System.out::println);

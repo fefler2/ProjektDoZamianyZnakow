@@ -75,20 +75,18 @@ public class ZamianaZnakow extends Application {
 
             try {
 
-                String contents = new String(Files.readAllBytes(Paths.get(filePath)));
-                System.out.println( contents);
-                String contents2 = contents.replace(newString, oldString);
-//                System.out.println("przed: " +contents2);
-
-                File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow");
-//                File root = new File("C:\\");
+//                String contents = new String(Files.readAllBytes(Paths.get(filePath)));
+//                System.out.println( contents);
+//                String contents2 = contents.replace(newString, oldString);
+////                System.out.println("przed: " +contents2);
+//
+//                File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow");
+////                File root = new File("C:\\");
 
 
 
                 try {
 
-
-                    Collection files = FileUtils.listFiles(root, null, true);
 
 
 
@@ -101,6 +99,21 @@ public class ZamianaZnakow extends Application {
                             .forEach( path -> {
                                 FileOutputStream fos = null;
                                 try {
+                                    String contents = new String(Files.readAllBytes(Paths.get(filePath)));
+                                    System.out.println( contents);
+                                    String contents2 = contents.replace(newString, oldString);
+//                System.out.println("przed: " +contents2);
+
+
+
+
+                                    File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow");
+//                File root = new File("C:\\");
+
+
+                                    Collection files = FileUtils.listFiles(root, null, true);
+
+
                                     fos = new FileOutputStream(filePath);
 
                                     DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
@@ -138,8 +151,8 @@ public class ZamianaZnakow extends Application {
 
             }
 
-            catch (IOException e2) {
-                System.err.println("Error: " + e2.getMessage());
+            finally {
+
             }
 
 

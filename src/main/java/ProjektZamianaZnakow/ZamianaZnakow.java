@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 public class ZamianaZnakow extends Application {
     @Override
     public void start(Stage myStage) {
@@ -52,7 +54,23 @@ public class ZamianaZnakow extends Application {
         result.setEditable(false);
 //        rootNode.add(result, 1, 3);
 
-        executiveButton.setOnAction();
+        executiveButton.setOnAction(e -> {
+            //text file, should be opening in default text editor
+            File file = new File("/Users/pankaj/source.txt");
+
+            //first check if Desktop is supported by Platform or not
+            if(!Desktop.isDesktopSupported()){
+                System.out.println("Desktop is not supported");
+                return;
+            }
+
+            Desktop desktop = Desktop.getDesktop();
+            if(file.exists()) desktop.open(file);
+
+            //let's try to open PDF file
+            file = new File("/Users/pankaj/java.pdf");
+            if(file.exists()) desktop.open(file);
+        });
 
 //        aButton.setOnAction(e -> {
 //            Integer value1 = Integer.valueOf(firstValue.getText());

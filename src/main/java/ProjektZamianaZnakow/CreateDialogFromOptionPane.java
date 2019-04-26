@@ -43,6 +43,10 @@ public class CreateDialogFromOptionPane {
         });
 
 
+        t1.start();
+
+        t1.join();
+
         Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -55,6 +59,12 @@ public class CreateDialogFromOptionPane {
                 });
             }
         });
+
+
+
+        t2.start();
+
+        t2.join();
 
 
 //        parent.dispatchEvent(new WindowEvent(parent, WindowEvent.WINDOW_CLOSING));

@@ -102,6 +102,7 @@ public class ZamianaZnakow extends Application {
 
                 File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow");
 
+
                 try {
                     boolean recursive = true;
 

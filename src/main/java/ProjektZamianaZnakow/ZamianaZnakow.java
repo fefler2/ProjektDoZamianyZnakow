@@ -60,9 +60,10 @@ public class ZamianaZnakow extends Application {
 
 
             System.out.println(firstValue.getText() + " koniec");
+            String filePath = firstValue.getText() + "." + secondValue.getText();
             try {
                 //text file, should be opening in default text editor
-                File file = new File("/Users/pankaj/source.txt");
+                File file = new File(filePath);
 
                 //first check if Desktop is supported by Platform or not
                 if(!Desktop.isDesktopSupported()){

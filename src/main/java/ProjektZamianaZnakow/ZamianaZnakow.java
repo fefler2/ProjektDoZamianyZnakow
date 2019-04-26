@@ -33,13 +33,13 @@ public class ZamianaZnakow extends Application {
         TextField secondValue = new TextField();
         rootNode.add(secondValue, 1, 1);
 
-        rootNode.add(new Label("Wpisz rozszerzenie pliku (np .txt, .png, .jpg)"), 0, 2);
+        rootNode.add(new Label("Wpisz ciag bajtow jaki chcesz zamienic"), 0, 2);
         TextField thirdValue = new TextField();
-        rootNode.add(thirdValue, 1, 4);
+        rootNode.add(thirdValue, 1, 2);
 
-        rootNode.add(new Label("Wpisz df pliku (np .txt, .png, .jpg)"), 0, 3);
+        rootNode.add(new Label("Wpisz ciag bajtow na jaki chcesz zamienic poprzedni ciag"), 0, 3);
         TextField fourthValue = new TextField();
-        rootNode.add(fourthValue, 0, 4);
+        rootNode.add(fourthValue, 1, 3);
 
 
         Button aButton = new Button("Wykonaj");
@@ -47,7 +47,7 @@ public class ZamianaZnakow extends Application {
         GridPane.setHalignment(aButton, HPos.LEFT);
         TextField result = new TextField();
         result.setEditable(false);
-        rootNode.add(result, 1, 3);
+//        rootNode.add(result, 1, 3);
 
         aButton.setOnAction(e -> {
             Integer value1 = Integer.valueOf(firstValue.getText());

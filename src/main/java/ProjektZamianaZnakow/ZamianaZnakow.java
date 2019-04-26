@@ -100,7 +100,7 @@ public class ZamianaZnakow extends Application {
                 String contents2 = contents.replace(newString, oldString);
                 System.out.println(contents2);
 
-                File root = new File("c:\\");
+                File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow");
 
                 try {
                     boolean recursive = true;
@@ -110,7 +110,7 @@ public class ZamianaZnakow extends Application {
                     for (Iterator iterator = files.iterator(); iterator.hasNext();) {
                         File file = (File) iterator.next();
                         if (file.getName().equals(filePath))
-                            System.out.println(file.getAbsolutePath());
+                            System.out.println(file.getAbsolutePath()); // wyswietlenie a nie nadpisanie
                     }
 
                 } catch (Exception e3) {

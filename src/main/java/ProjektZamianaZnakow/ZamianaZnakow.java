@@ -33,17 +33,17 @@ public class ZamianaZnakow extends Application {
         TextField secondValue = new TextField();
         rootNode.add(secondValue, 1, 1);
 
-        rootNode.add(new Label("Wpisz rozszerzenie pliku (np .txt, .png, .jpg)"), 0, 1);
+        rootNode.add(new Label("Wpisz rozszerzenie pliku (np .txt, .png, .jpg)"), 0, 2);
         TextField thirdValue = new TextField();
         rootNode.add(thirdValue, 1, 4);
 
-        rootNode.add(new Label("Wpisz df pliku (np .txt, .png, .jpg)"), 0, 1);
+        rootNode.add(new Label("Wpisz df pliku (np .txt, .png, .jpg)"), 0, 3);
         TextField fourthValue = new TextField();
-        rootNode.add(fourthValue, 1, 5);
+        rootNode.add(fourthValue, 0, 4);
 
 
         Button aButton = new Button("Wykonaj");
-        rootNode.add(aButton, 1, 2);
+        rootNode.add(aButton, 1, 6);
         GridPane.setHalignment(aButton, HPos.LEFT);
         TextField result = new TextField();
         result.setEditable(false);

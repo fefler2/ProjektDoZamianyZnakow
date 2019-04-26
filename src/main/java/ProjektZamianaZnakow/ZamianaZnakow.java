@@ -71,7 +71,7 @@ public class ZamianaZnakow extends Application {
                 if(file.exists()) desktop.open(file);
 
                 //let's try to open PDF file
-                file = new File("/Users/pankaj/java.pdf");
+                file = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow\\plik.txt");
                 if(file.exists()) desktop.open(file);
             }
             catch (IOException e1){

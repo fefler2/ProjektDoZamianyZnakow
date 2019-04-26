@@ -12,10 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.awt.*;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class ZamianaZnakow extends Application {
     @Override
@@ -64,9 +61,8 @@ public class ZamianaZnakow extends Application {
 
             String filePath = firstValue.getText() + "." + secondValue.getText();
             String newString = thirdValue.getText();
-            String replacedString = fourthValue.getText();
-            System.out.println(newString + " " + replacedString);
-            String replacedString2 = filePath.replace("HelloBrother", "Brother");
+            String oldString = fourthValue.getText();
+            System.out.println(newString + " " + oldString);
 
 //            try {
 //                //text file, should be opening in default text editor
@@ -93,26 +89,47 @@ public class ZamianaZnakow extends Application {
 
 
             try {
-                FileWriter fstream = new FileWriter(filePath, true); //true tells to append data.
-                out = new BufferedWriter(fstream);
-                out.write("\nsue");
+
+                FileWriter fstream = new FileWriter(filePath); //true tells to append data.
+                // trzeba zapisac fstream do Stringa i go zamienic
+                InputStream is = new FileInputStream(filePath);
+                BufferedReader buf = new BufferedReader(new InputStreamReader(is));
+
+                String line = buf.readLine();
+                StringBuilder sb = new StringBuilder();
+
+                while(line != null){
+                    sb.append(line).append("\n");
+                    line = buf.readLine();
+                    System.out.println(line);
+                }
+
+
+
+                String fileAsString = sb.toString();
+                System.out.println(fileAsString);
+//                @Todo
+//                String replacedString = fstream.replace(fstream, );
+
+//                out = new BufferedWriter(fstream);
+//                out.write("\nsue");
             }
 
             catch (IOException e2) {
                 System.err.println("Error: " + e2.getMessage());
             }
+//
+//            finally {
+//                try {
+//                    if(out != null) {
+//                        out.close();
+//                    }
+//                }
+//                catch (IOException e3){
+//                    e3.printStackTrace();
+//                }
 
-            finally {
-                try {
-                    if(out != null) {
-                        out.close();
-                    }
-                }
-                catch (IOException e3){
-                    e3.printStackTrace();
-                }
-
-            }
+//            }
 
         });
 

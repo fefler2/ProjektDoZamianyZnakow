@@ -78,9 +78,10 @@ public class ZamianaZnakow extends Application {
                 String contents = new String(Files.readAllBytes(Paths.get(filePath)));
                 System.out.println( contents);
                 String contents2 = contents.replace(newString, oldString);
-                System.out.println(contents2);
+//                System.out.println("przed: " +contents2);
 
-                File root = new File("C:\\");
+                File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow");
+//                File root = new File("C:\\");
 
 
 
@@ -101,20 +102,19 @@ public class ZamianaZnakow extends Application {
                                 FileOutputStream fos = null;
                                 try {
                                     fos = new FileOutputStream(filePath);
-                                } catch (FileNotFoundException e1, IOException e2, ) {
-                                    e1.printStackTrace();
-                                }
-                                DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
-                                try {
+
+                                    DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
+
                                     outStream.writeUTF(contents2);
-                                } catch (IOException e1) {
-                                    e1.printStackTrace();
-                                }
-                                try {
+
                                     outStream.close();
-                                } catch (IOException e1) {
+                                } catch (Exception e1) {
                                     e1.printStackTrace();
                                 }
+
+
+
+
                             });
 
 

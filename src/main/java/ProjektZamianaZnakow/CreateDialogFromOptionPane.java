@@ -43,10 +43,6 @@ public class CreateDialogFromOptionPane {
         });
 
 
-        t1.start();
-
-        t1.join();
-
         Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -62,6 +58,10 @@ public class CreateDialogFromOptionPane {
 
 
 
+        t1.start();
+
+        t1.join();
+
         t2.start();
 
         t2.join();
@@ -70,7 +70,7 @@ public class CreateDialogFromOptionPane {
 //        parent.dispatchEvent(new WindowEvent(parent, WindowEvent.WINDOW_CLOSING));
 
 //        setVisible(false); //you can't see me!
-        dispose(); //Destroy the JFrame object
+//        dispose(); //Destroy the JFrame object
 
         System.out.println(input1);
         System.out.println(input2);

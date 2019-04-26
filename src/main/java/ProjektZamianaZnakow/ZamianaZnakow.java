@@ -46,7 +46,7 @@ public class ZamianaZnakow extends Application {
         rootNode.add(fourthValue, 1, 3);
 
 
-
+        System.out.println(firstValue.getText() + " koniec");
 
 
         Button executiveButton = new Button("Wykonaj");
@@ -76,6 +76,7 @@ public class ZamianaZnakow extends Application {
                 if(file.exists()) desktop.open(file);
             }
             catch (IOException e1){
+
                 e1.printStackTrace();
             }
 

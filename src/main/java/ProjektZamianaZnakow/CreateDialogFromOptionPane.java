@@ -25,7 +25,7 @@
 //
 ////        @Todo
 //        // brak polskich znakow ze wzgledu na mozliwe problemy
-//        button.setText("Kliknij");
+//        button.setText("Kliknij żeby zmienić jeden ciąg bajtów na drugi");
 //        parent.add(button);
 //        parent.pack();
 //        parent.setVisible(true);

@@ -11,11 +11,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class SimpleCalculator extends Application {
+public class ZamianaZnakow extends Application {
     @Override
     public void start(Stage myStage) {
 
-        myStage.setTitle("Calculator");
+        myStage.setTitle("Zamiana bajtow");
 
         GridPane rootNode = new GridPane();
         rootNode.setPadding(new Insets(15));
@@ -23,16 +23,26 @@ public class SimpleCalculator extends Application {
         rootNode.setVgap(5);
         rootNode.setAlignment(Pos.CENTER);
 
-        Scene myScene = new Scene(rootNode, 300, 200);
+        Scene myScene = new Scene(rootNode, 700, 300);
 
-        rootNode.add(new Label("First Value:"), 0, 0);
+        rootNode.add(new Label("Wprowadz nazwe pliku jaki chcesz przeszukac (bez rozszerzenia):"), 0, 0);
         TextField firstValue = new TextField();
         rootNode.add(firstValue, 1, 0);
-        rootNode.add(new Label("Second Value:"), 0, 1);
+
+        rootNode.add(new Label("Wpisz rozszerzenie pliku (np .txt, .png, .jpg)"), 0, 1);
         TextField secondValue = new TextField();
         rootNode.add(secondValue, 1, 1);
-        rootNode.add(new Label("Sum is:"), 0, 2);
-        Button aButton = new Button("Calculate");
+
+        rootNode.add(new Label("Wpisz rozszerzenie pliku (np .txt, .png, .jpg)"), 0, 1);
+        TextField thirdValue = new TextField();
+        rootNode.add(thirdValue, 1, 4);
+
+        rootNode.add(new Label("Wpisz df pliku (np .txt, .png, .jpg)"), 0, 1);
+        TextField fourthValue = new TextField();
+        rootNode.add(fourthValue, 1, 5);
+
+
+        Button aButton = new Button("Wykonaj");
         rootNode.add(aButton, 1, 2);
         GridPane.setHalignment(aButton, HPos.LEFT);
         TextField result = new TextField();

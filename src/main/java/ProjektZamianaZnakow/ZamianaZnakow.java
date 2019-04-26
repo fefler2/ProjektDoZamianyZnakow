@@ -46,7 +46,6 @@ public class ZamianaZnakow extends Application {
         rootNode.add(fourthValue, 1, 3);
 
 
-        System.out.println(firstValue.getText() + " koniec");
 
 
         Button executiveButton = new Button("Wykonaj");
@@ -58,6 +57,9 @@ public class ZamianaZnakow extends Application {
 
         // jezeli nacisnie sie przycisk
         executiveButton.setOnAction(e -> {
+
+
+            System.out.println(firstValue.getText() + " koniec");
             try {
                 //text file, should be opening in default text editor
                 File file = new File("/Users/pankaj/source.txt");

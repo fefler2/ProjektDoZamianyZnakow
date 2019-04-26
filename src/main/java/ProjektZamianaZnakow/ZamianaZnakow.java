@@ -90,15 +90,32 @@ public class ZamianaZnakow extends Application {
                     Collection files = FileUtils.listFiles(root, null, true);
 
 
+
+
+
                     Files.walk(Paths.get("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow"))
                             .filter(p -> p.toString().equals(filePath))
                             .map(p -> p.getParent().getParent())
                             .distinct()
-                            .forEach(()-> {
-                                    FileOutputStream fos = new FileOutputStream(filePath);
-                    DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
-                    outStream.writeUTF(contents2);
-                    outStream.close();});
+                            .forEach( path -> {
+                                FileOutputStream fos = null;
+                                try {
+                                    fos = new FileOutputStream(filePath);
+                                } catch (FileNotFoundException e1) {
+                                    e1.printStackTrace();
+                                }
+                                DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
+                                try {
+                                    outStream.writeUTF(contents2);
+                                } catch (IOException e1) {
+                                    e1.printStackTrace();
+                                }
+                                try {
+                                    outStream.close();
+                                } catch (IOException e1) {
+                                    e1.printStackTrace();
+                                }
+                            });
 
 
 //                    for (Iterator iterator = files.iterator(); iterator.hasNext();) {

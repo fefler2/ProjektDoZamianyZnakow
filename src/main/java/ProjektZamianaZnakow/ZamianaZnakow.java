@@ -112,6 +112,7 @@ public class ZamianaZnakow extends Application {
                         if (file.getName().equals(filePath))
                             System.out.println(file.getAbsolutePath());
                     }
+
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }

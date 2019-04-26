@@ -92,19 +92,6 @@ public class ZamianaZnakow extends Application {
 
             try {
 
-//                FileWriter fstream = new FileWriter(filePath); //true tells to append data.
-                // trzeba zapisac fstream do Stringa i go zamienic
-//                InputStream is = new FileInputStream(filePath);
-//                BufferedReader buf = new BufferedReader(new InputStreamReader(is));
-
-//                String line = buf.readLine();
-//                StringBuilder sb = new StringBuilder();
-
-//                while(line != null){
-//                    sb.append(line).append("\n");
-//                    line = buf.readLine();
-//                    System.out.println(line);
-//                }
 
 
 

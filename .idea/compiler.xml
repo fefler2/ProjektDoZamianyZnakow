@@ -9,8 +9,8 @@
         <module name="zamianaZnakow" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="zamianaZnakow" target="1.7" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="zamianaZnakow" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

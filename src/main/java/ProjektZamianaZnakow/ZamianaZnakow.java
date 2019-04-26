@@ -57,9 +57,9 @@ public class ZamianaZnakow extends Application {
         GridPane.setHalignment(executiveButton, HPos.LEFT);
         TextField result = new TextField();
         result.setEditable(false);
-//        rootNode.add(result, 1, 3);
 
-        // jezeli nacisnie sie przycisk
+
+
         executiveButton.setOnAction(e -> {
 
 
@@ -67,27 +67,7 @@ public class ZamianaZnakow extends Application {
             String filePath = firstValue.getText() + "." + secondValue.getText();
             String newString = thirdValue.getText();
             String oldString = fourthValue.getText();
-//            System.out.println(newString + " " + oldString);
 
-//            try {
-//                //text file, should be opening in default text editor
-//                File file = new File(filePath);
-//
-//                //first check if Desktop is supported by Platform or not
-//                if(!Desktop.isDesktopSupported()){
-//                    System.out.println("Desktop is not supported");
-//                    return;
-//                }
-//
-//                Desktop desktop = Desktop.getDesktop();
-//                if(file.exists()) desktop.open(file);
-//
-//
-//            }
-//            catch (IOException e1){
-//
-//                e1.printStackTrace();
-//            }
 
 
             BufferedWriter out = null;
@@ -101,6 +81,7 @@ public class ZamianaZnakow extends Application {
                 System.out.println(contents2);
 
                 File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow");
+
 
 
                 try {
@@ -123,21 +104,8 @@ public class ZamianaZnakow extends Application {
                     e3.printStackTrace();
                 }
 
-                // nadpisanie
-//                FileOutputStream fos = new FileOutputStream(filePath);
-//                DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
-//                outStream.writeUTF(contents2);
-//                outStream.close();
-                // nadpisanie
 
 
-//                String fileAsString = sb.toString();
-//                System.out.println(fileAsString);
-//                @Todo
-//                String replacedString = fstream.replace(fstream, );
-
-//                out = new BufferedWriter(fstream);
-//                out.write("\nsue");
             }
 
             catch (IOException e2) {
@@ -149,12 +117,6 @@ public class ZamianaZnakow extends Application {
 
 
 
-//        aButton.setOnAction(e -> {
-//            Integer value1 = Integer.valueOf(firstValue.getText());
-//            Integer value2 = Integer.valueOf(secondValue.getText());
-//            Integer r = value1 + value2;
-//            result.setText(r.toString());
-//        });
 
         myStage.setScene(myScene);
 

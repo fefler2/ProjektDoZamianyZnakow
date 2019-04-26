@@ -56,6 +56,7 @@ public class ZamianaZnakow extends Application {
         result.setEditable(false);
 //        rootNode.add(result, 1, 3);
 
+        // jezeli nacisnie sie przycisk
         executiveButton.setOnAction(e -> {
             try {
                 //text file, should be opening in default text editor
@@ -71,7 +72,7 @@ public class ZamianaZnakow extends Application {
                 if(file.exists()) desktop.open(file);
 
                 //let's try to open PDF file
-                file = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow\\plik.txt");
+                file = new File("plik.txt");
                 if(file.exists()) desktop.open(file);
             }
             catch (IOException e1){

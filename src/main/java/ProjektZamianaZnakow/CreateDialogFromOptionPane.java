@@ -36,7 +36,7 @@ public class CreateDialogFromOptionPane {
                     @Override
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         String input1 = JOptionPane.showInputDialog(parent,
-                                "Wpisz nazwe pliku (bez rozszerzenia)", null);
+                                "Wpisz nazwe pliku (bez rozszerzenia)");
                     }
                 });
             }
@@ -50,7 +50,7 @@ public class CreateDialogFromOptionPane {
                     @Override
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         String input2 = JOptionPane.showInputDialog(parent,
-                                "Wpisz roszerzenie (np txt, png, jpg)?", null);
+                                "Wpisz roszerzenie (np txt, png, jpg)?");
                     }
                 });
             }

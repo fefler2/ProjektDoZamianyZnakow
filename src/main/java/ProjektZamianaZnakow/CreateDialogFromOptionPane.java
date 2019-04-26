@@ -46,7 +46,7 @@ public class CreateDialogFromOptionPane {
 
 //        parent.dispatchEvent(new WindowEvent(parent, WindowEvent.WINDOW_CLOSING));
 
-        setVisible(false); //you can't see me!
+//        setVisible(false); //you can't see me!
         dispose(); //Destroy the JFrame object
 
         System.out.println(input1);

@@ -16,7 +16,7 @@ public class CreateDialogFromOptionPane {
 
     public static void main(final String[] args) throws Exception {
         final JFrame parent = new JFrame();
-        JButton button = new JButton();
+        final JButton button = new JButton();
 
 //        @Todo
         // brak polskich znakow ze wzgledu na mozliwe problemy
@@ -29,20 +29,33 @@ public class CreateDialogFromOptionPane {
 
         String input1 = "";
         String input2 = "";
-        button.addActionListener(new java.awt.event.ActionListener() {
+        Thread t1 = new Thread(new Runnable() {
             @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String input1 = JOptionPane.showInputDialog(parent,
-                        "Wpisz nazwe pliku (bez rozszerzenia)", null);
+            public void run() {
+                button.addActionListener(new java.awt.event.ActionListener() {
+                    @Override
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        String input1 = JOptionPane.showInputDialog(parent,
+                                "Wpisz nazwe pliku (bez rozszerzenia)", null);
+                    }
+                });
             }
         });
-        button.addActionListener(new java.awt.event.ActionListener() {
+
+
+        Thread t2 = new Thread(new Runnable() {
             @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String input2 = JOptionPane.showInputDialog(parent,
-                        "Wpisz roszerzenie (np txt, png, jpg)?", null);
+            public void run() {
+                button.addActionListener(new java.awt.event.ActionListener() {
+                    @Override
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        String input2 = JOptionPane.showInputDialog(parent,
+                                "Wpisz roszerzenie (np txt, png, jpg)?", null);
+                    }
+                });
             }
         });
+
 
 //        parent.dispatchEvent(new WindowEvent(parent, WindowEvent.WINDOW_CLOSING));
 

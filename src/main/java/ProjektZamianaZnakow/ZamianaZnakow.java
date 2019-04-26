@@ -94,20 +94,24 @@ public class ZamianaZnakow extends Application {
                             .filter(p -> p.toString().equals(filePath))
                             .map(p -> p.getParent().getParent())
                             .distinct()
-                            .forEach(System.out::println);
+                            .forEach(()-> {
+                                    FileOutputStream fos = new FileOutputStream(filePath);
+                    DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
+                    outStream.writeUTF(contents2);
+                    outStream.close();});
 
 
-                    for (Iterator iterator = files.iterator(); iterator.hasNext();) {
-                        File file = (File) iterator.next();
-                        if (file.getName().equals(filePath))
-                        {
-                            FileOutputStream fos = new FileOutputStream(filePath);
-                            DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
-                            outStream.writeUTF(contents2);
-                            outStream.close();
-                        }
-
-                    }
+//                    for (Iterator iterator = files.iterator(); iterator.hasNext();) {
+//                        File file = (File) iterator.next();
+//                        if (file.getName().equals(filePath))
+//                        {
+//                            FileOutputStream fos = new FileOutputStream(filePath);
+//                            DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
+//                            outStream.writeUTF(contents2);
+//                            outStream.close();
+//                        }
+//
+//                    }
 
                 } catch (Exception e3) {
                     e3.printStackTrace();

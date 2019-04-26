@@ -78,6 +78,7 @@ public class ZamianaZnakow extends Application {
                 e1.printStackTrace();
             }
 
+
         });
 
 //        aButton.setOnAction(e -> {

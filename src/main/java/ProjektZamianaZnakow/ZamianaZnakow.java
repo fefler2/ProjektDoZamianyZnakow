@@ -42,19 +42,24 @@ public class ZamianaZnakow extends Application {
         rootNode.add(fourthValue, 1, 3);
 
 
-        Button aButton = new Button("Wykonaj");
-        rootNode.add(aButton, 1, 6);
-        GridPane.setHalignment(aButton, HPos.LEFT);
+
+
+
+        Button executiveButton = new Button("Wykonaj");
+        rootNode.add(executiveButton, 1, 6);
+        GridPane.setHalignment(executiveButton, HPos.LEFT);
         TextField result = new TextField();
         result.setEditable(false);
 //        rootNode.add(result, 1, 3);
 
-        aButton.setOnAction(e -> {
-            Integer value1 = Integer.valueOf(firstValue.getText());
-            Integer value2 = Integer.valueOf(secondValue.getText());
-            Integer r = value1 + value2;
-            result.setText(r.toString());
-        });
+        executiveButton.setOnAction();
+
+//        aButton.setOnAction(e -> {
+//            Integer value1 = Integer.valueOf(firstValue.getText());
+//            Integer value2 = Integer.valueOf(secondValue.getText());
+//            Integer r = value1 + value2;
+//            result.setText(r.toString());
+//        });
 
         myStage.setScene(myScene);
 

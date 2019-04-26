@@ -91,7 +91,7 @@ public class ZamianaZnakow extends Application {
 
 
                     Files.walk(Paths.get("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow"))
-                            .filter(p -> p.toString().endsWith(".ext"))
+
                             .map(p -> p.getParent().getParent())
                             .distinct()
                             .forEach(System.out::println);

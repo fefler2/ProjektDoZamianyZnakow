@@ -12,7 +12,9 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class ZamianaZnakow extends Application {
@@ -59,28 +61,58 @@ public class ZamianaZnakow extends Application {
         executiveButton.setOnAction(e -> {
 
 
-            System.out.println(firstValue.getText() + " koniec");
-            String filePath = firstValue.getText() + "." + secondValue.getText();
-            try {
-                //text file, should be opening in default text editor
-                File file = new File(filePath);
 
-                //first check if Desktop is supported by Platform or not
-                if(!Desktop.isDesktopSupported()){
-                    System.out.println("Desktop is not supported");
-                    return;
+            String filePath = firstValue.getText() + "." + secondValue.getText();
+            String newString = thirdValue.getText();
+            String replacedString = fourthValue.getText();
+            System.out.println(newString + " " + replacedString);
+            String replacedString2 = filePath.replace("HelloBrother", "Brother");
+
+//            try {
+//                //text file, should be opening in default text editor
+//                File file = new File(filePath);
+//
+//                //first check if Desktop is supported by Platform or not
+//                if(!Desktop.isDesktopSupported()){
+//                    System.out.println("Desktop is not supported");
+//                    return;
+//                }
+//
+//                Desktop desktop = Desktop.getDesktop();
+//                if(file.exists()) desktop.open(file);
+//
+//
+//            }
+//            catch (IOException e1){
+//
+//                e1.printStackTrace();
+//            }
+
+
+            BufferedWriter out = null;
+
+
+            try {
+                FileWriter fstream = new FileWriter(filePath, true); //true tells to append data.
+                out = new BufferedWriter(fstream);
+                out.write("\nsue");
+            }
+
+            catch (IOException e2) {
+                System.err.println("Error: " + e2.getMessage());
+            }
+
+            finally {
+                try {
+                    if(out != null) {
+                        out.close();
+                    }
+                }
+                catch (IOException e3){
+                    e3.printStackTrace();
                 }
 
-                Desktop desktop = Desktop.getDesktop();
-                if(file.exists()) desktop.open(file);
-
-
             }
-            catch (IOException e1){
-
-                e1.printStackTrace();
-            }
-
 
         });
 

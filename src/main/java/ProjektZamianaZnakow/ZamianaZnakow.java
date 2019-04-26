@@ -100,10 +100,28 @@ public class ZamianaZnakow extends Application {
                 String contents2 = contents.replace(newString, oldString);
                 System.out.println(contents2);
 
-                FileOutputStream fos = new FileOutputStream(filePath);
-                DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
-                outStream.writeUTF(contents2);
-                outStream.close();
+                File root = new File("c:\\");
+
+                try {
+                    boolean recursive = true;
+
+                    Collection files = FileUtils.listFiles(root, null, recursive);
+
+                    for (Iterator iterator = files.iterator(); iterator.hasNext();) {
+                        File file = (File) iterator.next();
+                        if (file.getName().equals(filePath))
+                            System.out.println(file.getAbsolutePath());
+                    }
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                }
+
+                // nadpisanie
+//                FileOutputStream fos = new FileOutputStream(filePath);
+//                DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
+//                outStream.writeUTF(contents2);
+//                outStream.close();
+                // nadpisanie
 
 
 //                String fileAsString = sb.toString();
@@ -122,21 +140,7 @@ public class ZamianaZnakow extends Application {
 
         });
 
-        File root = new File("c:\\test");
-        String fileName = "a.txt";
-        try {
-            boolean recursive = true;
 
-            Collection files = FileUtils.listFiles(root, null, recursive);
-
-            for (Iterator iterator = files.iterator(); iterator.hasNext();) {
-                File file = (File) iterator.next();
-                if (file.getName().equals(fileName))
-                    System.out.println(file.getAbsolutePath());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
 //        aButton.setOnAction(e -> {
 //            Integer value1 = Integer.valueOf(firstValue.getText());

@@ -92,13 +92,15 @@ public class ZamianaZnakow extends Application {
 
             try {
 
-
-
-
                 String contents = new String(Files.readAllBytes(Paths.get(filePath)));
                 System.out.println( contents);
                 String contents2 = contents.replace(newString, oldString);
                 System.out.println(contents2);
+
+                FileOutputStream fos = new FileOutputStream(filePath);
+                DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
+                outStream.writeUTF(contents2);
+                outStream.close();
 
 
 //                String fileAsString = sb.toString();
@@ -113,18 +115,7 @@ public class ZamianaZnakow extends Application {
             catch (IOException e2) {
                 System.err.println("Error: " + e2.getMessage());
             }
-//
-//            finally {
-//                try {
-//                    if(out != null) {
-//                        out.close();
-//                    }
-//                }
-//                catch (IOException e3){
-//                    e3.printStackTrace();
-//                }
 
-//            }
 
         });
 

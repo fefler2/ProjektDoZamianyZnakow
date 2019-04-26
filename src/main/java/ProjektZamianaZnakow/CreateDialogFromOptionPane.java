@@ -12,11 +12,15 @@ import static com.sun.deploy.uitoolkit.ToolkitStore.dispose;
 import static com.sun.glass.ui.Cursor.setVisible;
 
 
-public class CreateDialogFromOptionPane {
+public class TakeInputs {
 
+    static String input1 = "";
+    static TakeInputs takeInputs = new TakeInputs();
     public static void main(final String[] args) throws Exception {
         final JFrame parent = new JFrame();
         final JButton button = new JButton();
+
+
 
 //        @Todo
         // brak polskich znakow ze wzgledu na mozliwe problemy
@@ -27,7 +31,7 @@ public class CreateDialogFromOptionPane {
 
 //        @Todo // zrefactorowac
 
-        String input1 = "";
+
         String input2 = "";
         Thread t1 = new Thread(new Runnable() {
             @Override
@@ -35,7 +39,7 @@ public class CreateDialogFromOptionPane {
                 button.addActionListener(new java.awt.event.ActionListener() {
                     @Override
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        String input1 = JOptionPane.showInputDialog(parent,
+                        takeInputs.input1 = JOptionPane.showInputDialog(parent,
                                 "Wpisz nazwe pliku (bez rozszerzenia)");
                     }
                 });
@@ -44,17 +48,18 @@ public class CreateDialogFromOptionPane {
 
 
         Thread t2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                button.addActionListener(new java.awt.event.ActionListener() {
-                    @Override
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        String input2 = JOptionPane.showInputDialog(parent,
-                                "Wpisz roszerzenie (np txt, png, jpg)?");
-                    }
-                });
-            }
-        });
+                @Override
+                public void run() {
+                    button.addActionListener(new java.awt.event.ActionListener() {
+                        @Override
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                            String input2 = JOptionPane.showInputDialog(parent,
+                                    "Wpisz roszerzenie (np txt, png, jpg)?");
+                        }
+                    });
+                }
+            });
+        }
 
 
 

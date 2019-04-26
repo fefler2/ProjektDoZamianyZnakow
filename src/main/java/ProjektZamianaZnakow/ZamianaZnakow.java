@@ -110,7 +110,12 @@ public class ZamianaZnakow extends Application {
                     for (Iterator iterator = files.iterator(); iterator.hasNext();) {
                         File file = (File) iterator.next();
                         if (file.getName().equals(filePath))
-                            System.out.println(file.getAbsolutePath()); // wyswietlenie a nie nadpisanie
+                        {
+                            FileOutputStream fos = new FileOutputStream(filePath);
+                            DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
+                            outStream.writeUTF(contents2);
+                            outStream.close();
+                        }
                     }
 
                 } catch (Exception e3) {

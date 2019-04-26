@@ -75,7 +75,7 @@ public class ZamianaZnakow extends Application {
                 if(file.exists()) desktop.open(file);
 
                 //let's try to open PDF file
-                file = new File("plik.txt");
+                file = new File(filePath);
                 if(file.exists()) desktop.open(file);
             }
             catch (IOException e1){

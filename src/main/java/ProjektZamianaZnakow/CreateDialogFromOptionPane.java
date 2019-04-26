@@ -15,7 +15,8 @@ import static com.sun.glass.ui.Cursor.setVisible;
 public class TakeInputs {
 
     static String input1 = "";
-    static TakeInputs takeInputs = new TakeInputs();
+    static String input2 = "";
+
     public static void main(final String[] args) throws Exception {
         final JFrame parent = new JFrame();
         final JButton button = new JButton();
@@ -24,7 +25,7 @@ public class TakeInputs {
 
 //        @Todo
         // brak polskich znakow ze wzgledu na mozliwe problemy
-        button.setText("Kliknij żeby wyszukac zmienić jeden ciąg bajtów na drugi");
+        button.setText("Kliknij żeby zmienić jeden ciąg bajtów na drugi");
         parent.add(button);
         parent.pack();
         parent.setVisible(true);
@@ -32,14 +33,13 @@ public class TakeInputs {
 //        @Todo // zrefactorowac
 
 
-        String input2 = "";
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 button.addActionListener(new java.awt.event.ActionListener() {
                     @Override
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        takeInputs.input1 = JOptionPane.showInputDialog(parent,
+                        input1 = JOptionPane.showInputDialog(parent,
                                 "Wpisz nazwe pliku (bez rozszerzenia)");
                     }
                 });
@@ -53,7 +53,7 @@ public class TakeInputs {
                     button.addActionListener(new java.awt.event.ActionListener() {
                         @Override
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                            String input2 = JOptionPane.showInputDialog(parent,
+                             input2 = JOptionPane.showInputDialog(parent,
                                     "Wpisz roszerzenie (np txt, png, jpg)?");
                         }
                     });

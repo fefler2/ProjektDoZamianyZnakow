@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class ZamianaZnakow extends Application {
     @Override
@@ -62,7 +64,7 @@ public class ZamianaZnakow extends Application {
             String filePath = firstValue.getText() + "." + secondValue.getText();
             String newString = thirdValue.getText();
             String oldString = fourthValue.getText();
-            System.out.println(newString + " " + oldString);
+//            System.out.println(newString + " " + oldString);
 
 //            try {
 //                //text file, should be opening in default text editor
@@ -90,24 +92,30 @@ public class ZamianaZnakow extends Application {
 
             try {
 
-                FileWriter fstream = new FileWriter(filePath); //true tells to append data.
+//                FileWriter fstream = new FileWriter(filePath); //true tells to append data.
                 // trzeba zapisac fstream do Stringa i go zamienic
                 InputStream is = new FileInputStream(filePath);
                 BufferedReader buf = new BufferedReader(new InputStreamReader(is));
 
-                String line = buf.readLine();
-                StringBuilder sb = new StringBuilder();
+//                String line = buf.readLine();
+//                StringBuilder sb = new StringBuilder();
 
-                while(line != null){
-                    sb.append(line).append("\n");
-                    line = buf.readLine();
-                    System.out.println(line);
-                }
+//                while(line != null){
+//                    sb.append(line).append("\n");
+//                    line = buf.readLine();
+//                    System.out.println(line);
+//                }
 
 
 
-                String fileAsString = sb.toString();
-                System.out.println(fileAsString);
+                String contents = new String(Files.readAllBytes(Paths.get(filePath)));
+                System.out.println( contents);
+                String contents2 = contents.replace(newString, oldString);
+                System.out.println(contents2);
+
+
+//                String fileAsString = sb.toString();
+//                System.out.println(fileAsString);
 //                @Todo
 //                String replacedString = fstream.replace(fstream, );
 

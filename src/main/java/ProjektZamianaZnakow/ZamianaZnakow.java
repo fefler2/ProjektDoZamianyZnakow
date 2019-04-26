@@ -104,9 +104,9 @@ public class ZamianaZnakow extends Application {
 
 
                 try {
-                    boolean recursive = true;
 
-                    Collection files = FileUtils.listFiles(root, null, recursive);
+
+                    Collection files = FileUtils.listFiles(root, null, true);
 
                     for (Iterator iterator = files.iterator(); iterator.hasNext();) {
                         File file = (File) iterator.next();

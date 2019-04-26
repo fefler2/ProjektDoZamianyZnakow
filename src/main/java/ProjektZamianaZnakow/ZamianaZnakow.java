@@ -101,7 +101,7 @@ public class ZamianaZnakow extends Application {
                                 FileOutputStream fos = null;
                                 try {
                                     fos = new FileOutputStream(filePath);
-                                } catch (FileNotFoundException e1) {
+                                } catch (FileNotFoundException e1, IOException e2, ) {
                                     e1.printStackTrace();
                                 }
                                 DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));

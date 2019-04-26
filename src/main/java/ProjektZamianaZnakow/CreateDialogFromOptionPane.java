@@ -9,7 +9,9 @@ public class CreateDialogFromOptionPane {
         final JFrame parent = new JFrame();
         JButton button = new JButton();
 
-        button.setText("Click me to show dialog!");
+//        @Todo
+        // brak polskich znakow ze wzgledu na mozliwe problemy
+        button.setText("Kliknij zeby ");
         parent.add(button);
         parent.pack();
         parent.setVisible(true);

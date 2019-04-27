@@ -99,14 +99,11 @@ public class ZamianaZnakow10 extends Application {
 
         executiveButton.setOnAction(e -> {
 
-
-
             final String directory = "C:\\";
 
             String filePath = firstValue.getText() + "." + secondValue.getText();
             String newString = thirdValue.getText();
             String oldString = fourthValue.getText();
-
 
             BufferedWriter out = null;
 
@@ -121,67 +118,16 @@ public class ZamianaZnakow10 extends Application {
                 try {
 
 
-                    // co tutaj dalej zrobic
-
                     FileOutputStream fos = null;
-
-//                    Files.walk(Paths.get("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow"))
-//                            .filter(p -> p.toString().equals(filePath))
-//                            .map(p -> p.getParent().getParent())
-//                            .distinct()
-//                            .forEach( path -> {
-//                                FileOutputStream fos = null;
                     try {
-                        String contents = new String(Files.readAllBytes(Paths.get(filePath))); // plik wczytany do Stringa
-//                                    System.out.println( contents);
-                        String contents2 = contents.replace(newString, oldString); // nowa zamieniona wartosc
-//                System.out.println("przed: " +contents2);
+                        String contents = new String(Files.readAllBytes(Paths.get(filePath)));
+                        String contents2 = contents.replace(newString, oldString);
 
 
                         //
 
-                        System.out.println(filePath);
-                        File dir = new File("C:\\");
-                        FilenameFilter filter = new FilenameFilter() {
-                            public boolean accept(File dir, String name) {
-                                return name.equals(filePath);
-                            }
-                        };
-                        String[] children = dir.list(filter);
-//                                    System.out.println(children.length);
-                        if (children == null) {
-                            System.out.println("Either dir does not exist or is not a directory");
-                        } else {
-                            for (int i = 0; i < children.length; i++) {
-//                                            @Todo
-                                System.out.println(i); //
-                                String filename = children[i];
-                                System.out.println(filename);
-                            }
-                        }
-                        //
 
 
-
-                        /////
-                        /////
-                        File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow\\");
-                        String fileName = filePath;
-                        try {
-
-                            Collection files = FileUtils.listFiles(root, null, true);
-
-                            for (Iterator iterator = files.iterator(); iterator.hasNext(); ) {
-                                File file = (File) iterator.next();
-                                if (file.getName().equals(fileName)) {
-
-                                    System.out.println(file.getAbsolutePath());
-
-                                }
-                            }
-                        } catch (Exception e5) {
-                            e5.printStackTrace();
-                        }
                         /////
                         /////
 

@@ -26,20 +26,62 @@ import java.util.HashSet;
 public class ZamianaZnakow10 extends Application {
 
 
-    public void listFilesAndFilesSubDirectories(String directoryName) {
+    public void listFilesAndFilesSubDirectories(String directoryName, TextField firstValue, TextField secondValue, TextField thirdValue, TextField fourthValue) {
 
 
         File directory = new File(directoryName);
+        String filePath = firstValue.getText() + "." + secondValue.getText();
+        String newString = thirdValue.getText();
+        String oldString = fourthValue.getText();
+
 
         File[] fList = directory.listFiles();
         assert fList != null;
         for (File file : fList) {
 
 
+
             try {
                 if (file.isFile()) {
-                    if (file.getName().equals("plik2v.txt")){
+                    if (file.getName().equals(filePath)){
                         System.out.println(file.getName());
+
+
+                        try {
+
+
+                            FileOutputStream fos = null;
+                            try {
+                                String contents = new String(Files.readAllBytes(Paths.get(filePath))); // string
+                                String contents2 = contents.replace(newString, oldString); // zmieniony
+
+
+//                                    @Todo
+                                fos = new FileOutputStream(filePath); // domyslnie program jest w sciezce
+
+                                DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
+
+                                outStream.writeUTF(contents2); // wpisanie
+
+                                outStream.close(); // zamkniecie
+                                System.out.println("operacja wykonana");
+
+                            } catch (Exception e1) {
+                                e1.printStackTrace();
+                            }
+
+
+                            ////
+//                            PrintWriter pw = new PrintWriter(filePath);
+//
+//                            BufferedReader br2 = new BufferedReader(new FileReader(filePath));
+//
+//                            String line2 = br2.readLine();
+
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
+                        }
+
                     }
 //                    System.out.println(file.getName());
 
@@ -47,7 +89,7 @@ public class ZamianaZnakow10 extends Application {
 //                    System.out.println(file.getAbsolutePath()); // pokazuje sciezke
 
                 } else if (file.isDirectory() && file.isDirectory()) {
-                    listFilesAndFilesSubDirectories(file.getAbsolutePath());
+                    listFilesAndFilesSubDirectories(file.getAbsolutePath(), firstValue, secondValue, thirdValue, fourthValue);
                 }
 
 
@@ -99,50 +141,54 @@ public class ZamianaZnakow10 extends Application {
 
         executiveButton.setOnAction(e -> {
 
-            final String directory = "C:\\";
-            listFilesAndFilesSubDirectories(directory);
+//            final String directory = "C:\\";
 
-            String filePath = firstValue.getText() + "." + secondValue.getText();
-            String newString = thirdValue.getText();
-            String oldString = fourthValue.getText();
+//            listFilesAndFilesSubDirectories(directory, firstValue, secondValue, thirdValue, fourthValue);
+//            File directory = new File(directoryName);
 
-//            BufferedWriter out = null;
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            try{
+                String filePath = firstValue.getText() + "." + secondValue.getText();
+                String newString = thirdValue.getText();
+                String oldString = fourthValue.getText();
 
-
-            try {
+                String contents = new String(Files.readAllBytes(Paths.get(filePath))); // string
+                String contents2 = contents.replace(newString, oldString); // zmieniony
 
 
                 FileOutputStream fos = null;
-                try {
-                    String contents = new String(Files.readAllBytes(Paths.get(filePath))); // string
-                    String contents2 = contents.replace(newString, oldString); // zmieniony
 
+                fos = new FileOutputStream(filePath); // domyslnie program jest w sciezce
 
-//                                    @Todo
-                    fos = new FileOutputStream(filePath); // domyslnie program jest w sciezce
+                DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
 
-                    DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
+                outStream.writeUTF(contents2); // wpisanie
 
-                    outStream.writeUTF(contents2); // wpisanie
+                outStream.close(); // zamkniecie
+                System.out.println("operacja wykonana");
 
-                    outStream.close(); // zamkniecie
-
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
-
-
-                ////
-                PrintWriter pw = new PrintWriter(filePath);
-
-                BufferedReader br2 = new BufferedReader(new FileReader(filePath));
-
-                String line2 = br2.readLine();
-
-            } catch (Exception e3) {
-                e3.printStackTrace();
             }
-
+            catch (Exception e22){
+//             e22.printStackTrace();
+            }
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
 
         });
 

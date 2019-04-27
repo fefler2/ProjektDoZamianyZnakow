@@ -110,17 +110,20 @@ public class ZamianaZnakow extends Application {
 
                                     //
 
-                                    File dir = new File("C:");
+                                    System.out.println(filePath);
+                                    File dir = new File("C:\\");
                                     FilenameFilter filter = new FilenameFilter() {
                                         public boolean accept (File dir, String name) {
                                             return name.equals(filePath);
                                         }
                                     };
                                     String[] children = dir.list(filter);
+//                                    System.out.println(children.length);
                                     if (children == null) {
                                         System.out.println("Either dir does not exist or is not a directory");
                                     } else {
                                         for (int i = 0; i< children.length; i++) {
+//                                            @Todo
                                             System.out.println(i); //
                                             String filename = children[i];
                                             System.out.println(filename);
@@ -130,17 +133,18 @@ public class ZamianaZnakow extends Application {
 
 
 
-                                    File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow");
+//                                    File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow");
 //                File root = new File("C:\\");
 
 
-                                    Collection files = FileUtils.listFiles(root, null, true);
+//                                    Collection files = FileUtils.listFiles(root, null, true);
 
-                                    fos = new FileOutputStream(filePath);
+//                                    @Todo
+                                    fos = new FileOutputStream(filePath); // domyslnie program jest w sciezce
 
                                     DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
 
-                                    outStream.writeUTF(contents2);
+                                    outStream.writeUTF(contents2); // wpisanie
 
                                     outStream.close();
 

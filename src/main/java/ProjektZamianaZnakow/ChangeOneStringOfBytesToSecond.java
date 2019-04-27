@@ -17,11 +17,14 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class ZamianaZnakow10 extends Application {
+/*
+program do zamiany jednego ciagu bajtow na drugi
+ */
+
+public class ChangeOneStringOfBytesToSecond extends Application {
 
 
     public void listFilesAndFilesSubDirectories(String directoryName, TextField firstValue, TextField secondValue, TextField thirdValue, TextField fourthValue) {
-
 
         File directory = new File(directoryName);
         String filePath = firstValue.getText() + "." + secondValue.getText();
@@ -30,7 +33,7 @@ public class ZamianaZnakow10 extends Application {
 
 
 
-        File[] fList = directory.listFiles(); // albo tu?
+        File[] fList = directory.listFiles();
 
         assert fList != null;
         for (File file : fList) {
@@ -38,37 +41,33 @@ public class ZamianaZnakow10 extends Application {
 
             try {
                 if (file.isFile()) {
-                    if (file.getName().equals(filePath)) { // filePath to sciezka do pliku, a nie plik???
+                    if (file.getName().equals(filePath)) {
                         System.out.println(file.getName());
 
 
                         try {
 
 
-                            String contents = new String(Files.readAllBytes(Paths.get(filePath))); // string
-                            String contents2 = contents.replace(newString, oldString); // zmieniony string
+                            String contents = new String(Files.readAllBytes(Paths.get(filePath)));
+                            String contents2 = contents.replace(newString, oldString);
 
 
                             FileOutputStream fos = null;
                             System.out.println(file.getAbsolutePath());
 
-                            fos = new FileOutputStream(file.getAbsolutePath()); // moze tutaj jest blad domyslnie program jest w sciezce!!!!
+                            fos = new FileOutputStream(file.getAbsolutePath());
 
                             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
 
-                            outStream.writeUTF(contents2); // wpisanie
+                            outStream.writeUTF(contents2);
 
-                            outStream.close(); // zamkniecie
+                            outStream.close();
 
                             System.out.println("operacja wykonana");
 
                         } catch (Exception e22) {
                             e22.printStackTrace();
                         }
-
-
-
-
                     }
 
 
@@ -81,7 +80,7 @@ public class ZamianaZnakow10 extends Application {
 
 
             } catch (NullPointerException e) {
-
+                int a = 4;
             }
 
         }
@@ -128,14 +127,10 @@ public class ZamianaZnakow10 extends Application {
 
         executiveButton.setOnAction(e -> {
 
-            final String directory = "c:\\"; // c:\\ zamiast c: !!!
-
+            final String directory = "c:\\";
             listFilesAndFilesSubDirectories(directory, firstValue, secondValue, thirdValue, fourthValue);
-
             System.out.println("koniec");
-
         });
-
 
         myStage.setScene(myScene);
 

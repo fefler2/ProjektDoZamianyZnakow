@@ -113,7 +113,7 @@ public class ZamianaZnakow extends Application {
                                     File dir = new File("C:");
                                     FilenameFilter filter = new FilenameFilter() {
                                         public boolean accept (File dir, String name) {
-                                            return name.startsWith("plik");
+                                            return name.equals(filePath);
                                         }
                                     };
                                     String[] children = dir.list(filter);

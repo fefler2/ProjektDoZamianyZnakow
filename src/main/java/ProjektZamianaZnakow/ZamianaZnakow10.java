@@ -38,26 +38,26 @@ public class ZamianaZnakow10 extends Application {
 
             try {
                 if (file.isFile()) {
+                    if (file.getName().equals("plik2v.txt")){
+                        System.out.println(file.getName());
+                    }
+//                    System.out.println(file.getName());
 
                     //
-                    System.out.println(file.getAbsolutePath());
+//                    System.out.println(file.getAbsolutePath()); // pokazuje sciezke
 
-                }
-
-                else if (file.isDirectory() && file.isDirectory()) {
+                } else if (file.isDirectory() && file.isDirectory()) {
                     listFilesAndFilesSubDirectories(file.getAbsolutePath());
                 }
 
 
             } catch (NullPointerException e) {
-                e.printStackTrace();
+
             }
 
         }
 
     }
-
-
 
 
     @Override
@@ -100,6 +100,7 @@ public class ZamianaZnakow10 extends Application {
         executiveButton.setOnAction(e -> {
 
             final String directory = "C:\\";
+            listFilesAndFilesSubDirectories(directory);
 
             String filePath = firstValue.getText() + "." + secondValue.getText();
             String newString = thirdValue.getText();
@@ -108,103 +109,38 @@ public class ZamianaZnakow10 extends Application {
 //            BufferedWriter out = null;
 
 
-
             try {
 
 
-
-
-
+                FileOutputStream fos = null;
                 try {
+                    String contents = new String(Files.readAllBytes(Paths.get(filePath))); // string
+                    String contents2 = contents.replace(newString, oldString); // zmieniony
 
-
-                    FileOutputStream fos = null;
-                    try {
-                        String contents = new String(Files.readAllBytes(Paths.get(filePath)));
-                        String contents2 = contents.replace(newString, oldString);
-
-
-                        //
-
-
-
-                        /////
-                        /////
-
-//                                    File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow");
-//                File root = new File("C:\\");
-
-
-//                                    Collection files = FileUtils.listFiles(root, null, true);
 
 //                                    @Todo
-                        fos = new FileOutputStream(filePath); // domyslnie program jest w sciezce
+                    fos = new FileOutputStream(filePath); // domyslnie program jest w sciezce
 
-                        DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
+                    DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
 
-                        outStream.writeUTF(contents2); // wpisanie
+                    outStream.writeUTF(contents2); // wpisanie
 
-                        outStream.close();
+                    outStream.close(); // zamkniecie
 
-                    } catch (Exception e1) {
-                        e1.printStackTrace();
-                    }
-
-
-                    ////
-                    PrintWriter pw = new PrintWriter(filePath);
-
-                    BufferedReader br2 = new BufferedReader(new FileReader(filePath));
-
-                    String line2 = br2.readLine();
-
-                    // hashset for storing lines of delete.txt
-                    HashSet<String> hs = new HashSet<String>();
-
-                    // loop for each line of delete.txt
-                    while(line2 != null)
-                    {
-                        hs.add(line2);
-                        line2 = br2.readLine();
-                    }
-
-                    // BufferedReader object for input.txt
-                    BufferedReader br1 = new BufferedReader(new FileReader("input.txt"));
-
-                    String line1 = br1.readLine();
-
-                    // loop for each line of input.txt
-                    while(line1 != null)
-                    {
-                        // if line is not present in delete.txt
-                        // write it to output.txt
-                        if(!hs.contains(line1))
-                            pw.println(line1);
-
-                        line1 = br1.readLine();
-                    }
-
-                    pw.flush();
-
-                    // closing resources
-                    br1.close();
-                    br2.close();
-                    pw.close();
-
-                    System.out.println("File operation performed successfully");
-
-
-                    ////
-                    ////
-                    ////
-
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
                 }
 
 
-            } finally {
+                ////
+                PrintWriter pw = new PrintWriter(filePath);
 
+                BufferedReader br2 = new BufferedReader(new FileReader(filePath));
+
+                String line2 = br2.readLine();
+
+            } catch (Exception e3) {
+                e3.printStackTrace();
             }
 
 

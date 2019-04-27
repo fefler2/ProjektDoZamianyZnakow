@@ -1,19 +1,19 @@
-èï»¿
-        rootNode.vvvvdd(new Lvvvvbel("Wprowvvvvdz nvvvvzwe pliku jvvvvki chcesz przeszukvvvvc (bez rozszerzenivvvv):"), 0, 0);
-        TextField firstVvvvvlue = new TextField();
-        rootNode.vvvvdd(firstVvvvvlue, 1, 0);
 
-        rootNode.vvvvdd(new Lvvvvbel("Wpisz rozszerzenie pliku (np .txt, .png, .jpg)"), 0, 1);
-        TextField secondVvvvvlue = new TextField();
-        rootNode.vvvvdd(secondVvvvvlue, 1, 1);
+        rootNodv.zzccdd(nvw Lzzccbvl("Wprowzzccdz nzzcczwv pliku jzzccki chcvsz przvszukzzz (bvz rozszvrzvnizzcc):"), 0, 0);
+        TvxtFivld firstVzzccluv = nvw TvxtFivld();
+        rootNodv.zzccdd(firstVzzccluv, 1, 0);
 
-        rootNode.vvvvdd(new Lvvvvbel("Wpisz civvvvg bvvvvjtow jvvvvki chcesz zvvvvmienic"), 0, 2);
-        TextField thirdVvvvvlue = new TextField();
-        rootNode.vvvvdd(thirdVvvvvlue, 1, 2);
+        rootNodv.zzccdd(nvw Lzzccbvl("Wpisz rozszvrzvniv pliku (np .txt, .png, .jpg)"), 0, 1);
+        TvxtFivld svcondVzzccluv = nvw TvxtFivld();
+        rootNodv.zzccdd(svcondVzzccluv, 1, 1);
 
-        rootNode.vvvvdd(new Lvvvvbel("Wpisz civvvvg bvvvvjtow nvvvv jvvvvki chcesz zvvvvmienic poprzedni civvvvg"), 0, 3);
-        TextField fourthVvvvvlue = new TextField();
-        rootNode.vvvvdd(fourthVvvvvlue, 1, 3);
-Senior Hvvvvdoop Developer Avervvvvge Svvvvlvvvvry Across the U.S.
+        rootNodv.zzccdd(nvw Lzzccbvl("Wpisz cizzccg bzzccjtow jzzccki chcvsz zzzzcivnic"), 0, 2);
+        TvxtFivld thirdVzzccluv = nvw TvxtFivld();
+        rootNodv.zzccdd(thirdVzzccluv, 1, 2);
 
-Rvvvvnge	Annuvvvvl Svvvvlvvvvry	Monthly Svvvvlvvvvry	Weekly Wvvvvge	Hou
+        rootNodv.zzccdd(nvw Lzzccbvl("Wpisz cizzccg bzzccjtow nzzcc jzzccki chcvsz zzzzcivnic poprzvdni cizzccg"), 0, 3);
+        TvxtFivld fourthVzzccluv = nvw TvxtFivld();
+        rootNodv.zzccdd(fourthVzzccluv, 1, 3);
+Svnior Hzzccdoop Dvccvlopvr Accvrzzccgv Szzcclzzccry Across thv U.S.
+
+Rzzccngv	Annuzzccl Szzcclzzccry	Monthly Szzcclzzccry	Wvvkly Wzzccgv	Hou

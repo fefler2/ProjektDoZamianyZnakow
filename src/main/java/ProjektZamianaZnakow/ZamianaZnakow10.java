@@ -11,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-//import org.apache.commons.io.FileUtils;
+
 
 import java.io.*;
 import java.nio.file.Files;
@@ -29,7 +29,6 @@ public class ZamianaZnakow10 extends Application {
         String oldString = fourthValue.getText();
 
 
-//        System.out.println(directory);
 
         File[] fList = directory.listFiles(); // albo tu?
 
@@ -74,10 +73,7 @@ public class ZamianaZnakow10 extends Application {
 
 
                 }
-//                    System.out.println(file.getName());
 
-                //
-//                    System.out.println(file.getAbsolutePath()); // pokazuje sciezke
 
                 else if (file.isDirectory()) {
                     listFilesAndFilesSubDirectories(file.getAbsolutePath(), firstValue, secondValue, thirdValue, fourthValue);
@@ -135,51 +131,6 @@ public class ZamianaZnakow10 extends Application {
             final String directory = "c:\\"; // c:\\ zamiast c: !!!
 
             listFilesAndFilesSubDirectories(directory, firstValue, secondValue, thirdValue, fourthValue);
-//            File directory = new File(directoryName);
-
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-//            try{
-//                String filePath = firstValue.getText() + "." + secondValue.getText();
-//                String newString = thirdValue.getText();
-//                String oldString = fourthValue.getText();
-//
-//                String contents = new String(Files.readAllBytes(Paths.get(filePath))); // string
-//                String contents2 = contents.replace(newString, oldString); // zmieniony
-//
-//
-//                FileOutputStream fos = null;
-//
-//                fos = new FileOutputStream(filePath); // domyslnie program jest w sciezce
-//
-//                DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
-//
-//                outStream.writeUTF(contents2); // wpisanie
-//
-//                outStream.close(); // zamkniecie
-//                System.out.println("operacja wykonana");
-//
-//            }
-//            catch (Exception e22){
-////             e22.printStackTrace();
-//            }
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
-            //
 
             System.out.println("koniec");
 

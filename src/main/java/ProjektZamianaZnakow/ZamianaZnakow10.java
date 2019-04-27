@@ -1,5 +1,6 @@
 package ProjektZamianaZnakow;
 
+
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -22,10 +23,39 @@ import java.util.Iterator;
 import java.io.*;
 import java.util.HashSet;
 
-// wlasciwy program
+public class ZamianaZnakow10 extends Application {
 
-public class ZamianaZnakow3 extends Application {
 
+
+
+    public void listFilesAndFilesSubDirectories(String directoryName) {
+
+
+        File directory = new File(directoryName);
+
+        File[] fList = directory.listFiles();
+        assert fList != null;
+        for (File file : fList) {
+
+
+            try {
+                if (file.isFile()) {
+                    System.out.println(file.getAbsolutePath());
+
+                }
+
+                else if (file.isDirectory() && file.isDirectory()) {
+                    listFilesAndFilesSubDirectories(file.getAbsolutePath());
+                }
+
+
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
 
     @Override
     public void start(Stage myStage) {
@@ -77,7 +107,13 @@ public class ZamianaZnakow3 extends Application {
 
             try {
 
-
+//                String contents = new String(Files.readAllBytes(Paths.get(filePath)));
+//                System.out.println( contents);
+//                String contents2 = contents.replace(newString, oldString);
+////                System.out.println("przed: " +contents2);
+//
+//                File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow");
+////                File root = new File("C:\\");
 
 
                 try {
@@ -87,12 +123,20 @@ public class ZamianaZnakow3 extends Application {
 
                     FileOutputStream fos = null;
 
-
+//                    Files.walk(Paths.get("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow"))
+//                            .filter(p -> p.toString().equals(filePath))
+//                            .map(p -> p.getParent().getParent())
+//                            .distinct()
+//                            .forEach( path -> {
+//                                FileOutputStream fos = null;
                     try {
                         String contents = new String(Files.readAllBytes(Paths.get(filePath))); // plik wczytany do Stringa
 //                                    System.out.println( contents);
                         String contents2 = contents.replace(newString, oldString); // nowa zamieniona wartosc
+//                System.out.println("przed: " +contents2);
 
+
+                        //
 
                         System.out.println(filePath);
                         File dir = new File("C:\\");

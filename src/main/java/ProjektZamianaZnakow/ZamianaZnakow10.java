@@ -26,8 +26,6 @@ import java.util.HashSet;
 public class ZamianaZnakow10 extends Application {
 
 
-
-
     public void listFilesAndFilesSubDirectories(String directoryName) {
 
 
@@ -40,6 +38,8 @@ public class ZamianaZnakow10 extends Application {
 
             try {
                 if (file.isFile()) {
+
+                    //
                     System.out.println(file.getAbsolutePath());
 
                 }
@@ -56,6 +56,9 @@ public class ZamianaZnakow10 extends Application {
         }
 
     }
+
+
+
 
     @Override
     public void start(Stage myStage) {
@@ -97,6 +100,9 @@ public class ZamianaZnakow10 extends Application {
         executiveButton.setOnAction(e -> {
 
 
+
+            final String directory = "C:\\";
+
             String filePath = firstValue.getText() + "." + secondValue.getText();
             String newString = thirdValue.getText();
             String oldString = fourthValue.getText();
@@ -105,15 +111,11 @@ public class ZamianaZnakow10 extends Application {
             BufferedWriter out = null;
 
 
+
             try {
 
-//                String contents = new String(Files.readAllBytes(Paths.get(filePath)));
-//                System.out.println( contents);
-//                String contents2 = contents.replace(newString, oldString);
-////                System.out.println("przed: " +contents2);
-//
-//                File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow");
-////                File root = new File("C:\\");
+
+
 
 
                 try {

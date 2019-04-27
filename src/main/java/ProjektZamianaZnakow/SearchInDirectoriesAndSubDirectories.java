@@ -40,8 +40,6 @@ public class SearchInDirectoriesAndSubDirectories {
     }
 
     public static void main(String[] args) {
-        SearchInDirectoriesAndSubDirectories listFilesUtil = new SearchInDirectoriesAndSubDirectories();
-        final String directory = "C:\\";
-        listFilesUtil.listFilesAndFilesSubDirectories(directory);
+
     }
 }

@@ -19,6 +19,9 @@ import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.Iterator;
 
+import java.io.*;
+import java.util.HashSet;
+
 public class ZamianaZnakow extends Application {
     @Override
     public void start(Stage myStage) {
@@ -50,8 +53,6 @@ public class ZamianaZnakow extends Application {
         rootNode.add(fourthValue, 1, 3);
 
 
-
-
         Button executiveButton = new Button("Wykonaj");
         rootNode.add(executiveButton, 1, 6);
         GridPane.setHalignment(executiveButton, HPos.LEFT);
@@ -59,15 +60,12 @@ public class ZamianaZnakow extends Application {
         result.setEditable(false);
 
 
-
         executiveButton.setOnAction(e -> {
-
 
 
             String filePath = firstValue.getText() + "." + secondValue.getText();
             String newString = thirdValue.getText();
             String oldString = fourthValue.getText();
-
 
 
             BufferedWriter out = null;
@@ -84,10 +82,7 @@ public class ZamianaZnakow extends Application {
 ////                File root = new File("C:\\");
 
 
-
                 try {
-
-
 
 
                     // co tutaj dalej zrobic
@@ -100,38 +95,58 @@ public class ZamianaZnakow extends Application {
 //                            .distinct()
 //                            .forEach( path -> {
 //                                FileOutputStream fos = null;
-                                try {
-                                    String contents = new String(Files.readAllBytes(Paths.get(filePath))); // plik wczytany do Stringa
+                    try {
+                        String contents = new String(Files.readAllBytes(Paths.get(filePath))); // plik wczytany do Stringa
 //                                    System.out.println( contents);
-                                    String contents2 = contents.replace(newString, oldString); // nowa zamieniona wartosc
+                        String contents2 = contents.replace(newString, oldString); // nowa zamieniona wartosc
 //                System.out.println("przed: " +contents2);
 
 
+                        //
 
-                                    //
-
-                                    System.out.println(filePath);
-                                    File dir = new File("C:\\");
-                                    FilenameFilter filter = new FilenameFilter() {
-                                        public boolean accept (File dir, String name) {
-                                            return name.equals(filePath);
-                                        }
-                                    };
-                                    String[] children = dir.list(filter);
+                        System.out.println(filePath);
+                        File dir = new File("C:\\");
+                        FilenameFilter filter = new FilenameFilter() {
+                            public boolean accept(File dir, String name) {
+                                return name.equals(filePath);
+                            }
+                        };
+                        String[] children = dir.list(filter);
 //                                    System.out.println(children.length);
-                                    if (children == null) {
-                                        System.out.println("Either dir does not exist or is not a directory");
-                                    } else {
-                                        for (int i = 0; i< children.length; i++) {
+                        if (children == null) {
+                            System.out.println("Either dir does not exist or is not a directory");
+                        } else {
+                            for (int i = 0; i < children.length; i++) {
 //                                            @Todo
-                                            System.out.println(i); //
-                                            String filename = children[i];
-                                            System.out.println(filename);
-                                        }
-                                    }
-                                    //
+                                System.out.println(i); //
+                                String filename = children[i];
+                                System.out.println(filename);
+                            }
+                        }
+                        //
 
 
+                        /////
+                        /////
+                        File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow\\");
+                        String fileName = filePath;
+                        try {
+
+                            Collection files = FileUtils.listFiles(root, null, true);
+
+                            for (Iterator iterator = files.iterator(); iterator.hasNext(); ) {
+                                File file = (File) iterator.next();
+                                if (file.getName().equals(fileName)) {
+
+                                    System.out.println(file.getAbsolutePath());
+
+                                }
+                            }
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
+                        }
+                        /////
+                        /////
 
 //                                    File root = new File("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow");
 //                File root = new File("C:\\");
@@ -140,19 +155,17 @@ public class ZamianaZnakow extends Application {
 //                                    Collection files = FileUtils.listFiles(root, null, true);
 
 //                                    @Todo
-                                    fos = new FileOutputStream(filePath); // domyslnie program jest w sciezce
+                        fos = new FileOutputStream(filePath); // domyslnie program jest w sciezce
 
-                                    DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
+                        DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
 
-                                    outStream.writeUTF(contents2); // wpisanie
+                        outStream.writeUTF(contents2); // wpisanie
 
-                                    outStream.close();
+                        outStream.close();
 
-                                } catch (Exception e1) {
-                                    e1.printStackTrace();
-                                }
-
-
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
 
 
 //                            });
@@ -175,17 +188,12 @@ public class ZamianaZnakow extends Application {
                 }
 
 
-
-            }
-
-            finally {
+            } finally {
 
             }
 
 
         });
-
-
 
 
         myStage.setScene(myScene);

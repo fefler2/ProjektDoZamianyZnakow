@@ -101,10 +101,31 @@ public class ZamianaZnakow extends Application {
                                 FileOutputStream fos = null;
                                 try {
                                     String contents = new String(Files.readAllBytes(Paths.get(filePath)));
-                                    System.out.println( contents);
-                                    String contents2 = contents.replace(newString, oldString);
+                                    System.out.println( contents); // plik wczytany do Stringa
+                                    String contents2 = contents.replace(newString, oldString); // nowa zamieniona wartosc
 //                System.out.println("przed: " +contents2);
 
+
+
+                                    //
+
+                                    File dir = new File("C:");
+                                    FilenameFilter filter = new FilenameFilter() {
+                                        public boolean accept (File dir, String name) {
+                                            return name.startsWith("plik");
+                                        }
+                                    };
+                                    String[] children = dir.list(filter);
+                                    if (children == null) {
+                                        System.out.println("Either dir does not exist or is not a directory");
+                                    } else {
+                                        for (int i = 0; i< children.length; i++) {
+                                            System.out.println(i); //
+                                            String filename = children[i];
+                                            System.out.println(filename);
+                                        }
+                                    }
+                                    //
 
 
 

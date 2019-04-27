@@ -105,7 +105,7 @@ public class ZamianaZnakow10 extends Application {
             String newString = thirdValue.getText();
             String oldString = fourthValue.getText();
 
-            BufferedWriter out = null;
+//            BufferedWriter out = null;
 
 
 
@@ -151,28 +151,9 @@ public class ZamianaZnakow10 extends Application {
                     }
 
 
-//                            });
-
-
-//                    for (Iterator iterator = files.iterator(); iterator.hasNext();) {
-//                        File file = (File) iterator.next();
-//                        if (file.getName().equals(filePath))
-//                        {
-//                            FileOutputStream fos = new FileOutputStream(filePath);
-//                            DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
-//                            outStream.writeUTF(contents2);
-//                            outStream.close();
-//                        }
-//
-//                    }
-
                     ////
-                    ////
-                    ////
-                    // PrintWriter object for output.txt
                     PrintWriter pw = new PrintWriter(filePath);
 
-                    // BufferedReader object for delete.txt
                     BufferedReader br2 = new BufferedReader(new FileReader(filePath));
 
                     String line2 = br2.readLine();

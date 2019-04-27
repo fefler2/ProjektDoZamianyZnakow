@@ -29,39 +29,21 @@ public class ZamianaZnakow10 extends Application {
         String oldString = fourthValue.getText();
 
 
-        File[] fList = directory.listFiles();
+//        System.out.println(directory);
+
+        File[] fList = directory.listFiles(); // albo tu?
+
         assert fList != null;
         for (File file : fList) {
 
 
             try {
                 if (file.isFile()) {
-                    if (file.getName().equals(filePath)) {
+                    if (file.getName().equals(filePath)) { // filePath to sciezka do pliku, a nie plik???
                         System.out.println(file.getName());
 
 
                         try {
-//
-//
-//                            FileOutputStream fos = null;
-//                            try {
-//                                String contents = new String(Files.readAllBytes(Paths.get(filePath))); // string
-//                                String contents2 = contents.replace(newString, oldString); // zmieniony
-//
-//
-////                                    @Todo
-//                                fos = new FileOutputStream(filePath); // domyslnie program jest w sciezce
-//
-//                                DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
-//
-//                                outStream.writeUTF(contents2); // wpisanie
-//
-//                                outStream.close(); // zamkniecie
-//                                System.out.println("operacja wykonana");
-//
-//                            } catch (Exception e1) {
-//                                e1.printStackTrace();
-//                            }
 
 
                             String contents = new String(Files.readAllBytes(Paths.get(filePath))); // string
@@ -69,8 +51,9 @@ public class ZamianaZnakow10 extends Application {
 
 
                             FileOutputStream fos = null;
+                            System.out.println(file.getAbsolutePath());
 
-                            fos = new FileOutputStream(filePath); // domyslnie program jest w sciezce
+                            fos = new FileOutputStream(file.getAbsolutePath()); // moze tutaj jest blad domyslnie program jest w sciezce!!!!
 
                             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
 
@@ -85,12 +68,7 @@ public class ZamianaZnakow10 extends Application {
                         }
 
 
-                        ////
-//                            PrintWriter pw = new PrintWriter(filePath);
-//
-//                            BufferedReader br2 = new BufferedReader(new FileReader(filePath));
-//
-//                            String line2 = br2.readLine();
+
 
                     }
 
@@ -154,7 +132,7 @@ public class ZamianaZnakow10 extends Application {
 
         executiveButton.setOnAction(e -> {
 
-            final String directory = "C:";
+            final String directory = "c:\\"; // c:\\ zamiast c: !!!
 
             listFilesAndFilesSubDirectories(directory, firstValue, secondValue, thirdValue, fourthValue);
 //            File directory = new File(directoryName);
@@ -202,6 +180,8 @@ public class ZamianaZnakow10 extends Application {
             //
             //
             //
+
+            System.out.println("koniec");
 
         });
 

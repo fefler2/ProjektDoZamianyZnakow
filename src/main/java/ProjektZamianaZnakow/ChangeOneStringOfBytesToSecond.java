@@ -5,13 +5,12 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.stage.Popup;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.BufferedOutputStream;
@@ -50,8 +49,8 @@ public class ChangeOneStringOfBytesToSecond extends Application {
 
                         try {
 
-                            String contents = new String(Files.readAllBytes(Paths.get(filePath)));
-                            String contents2 = contents.replace(newString, oldString);
+                            String contents = new String(Files.readAllBytes(Paths.get(filePath))); // zamienienie pliku na Stringa
+                            String contents2 = contents.replace(newString, oldString); // String po zamianie znakow
 
                             FileOutputStream fos = null;
 
@@ -86,24 +85,21 @@ public class ChangeOneStringOfBytesToSecond extends Application {
 
         myStage.setTitle("Zamiana ciagu bajtow");
 
-        Stage stage2 = new Stage();
-        stage2.setTitle("Abc");
-        Popup popup = new Popup();
-//        popup.
-//        popup.setX(200);
-//        popup.setY(140);
-
-
         GridPane rootNode = new GridPane();
-        rootNode.setPadding(new Insets(15));
+        rootNode.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+        rootNode.setPadding(new Insets(5));
+
+
         rootNode.setHgap(5);
         rootNode.setVgap(5);
         rootNode.setAlignment(Pos.CENTER);
 
-        Scene myScene = new Scene(rootNode, 700, 300);
+        Scene myScene = new Scene(rootNode, 800, 350);
 
-        rootNode.add(new Label("Wprowadz nazwe pliku jaki chcesz przeszukac (bez rozszerzenia):"), 0, 0);
+        // tworzenie przyciskow
+        rootNode.add(new Label("Wprowadz nazwe pliku jaki chcesz przeszukac (bez rozszerzenia)"), 0, 0);
         TextField firstValue = new TextField();
+
         rootNode.add(firstValue, 1, 0);
 
         rootNode.add(new Label("Wpisz rozszerzenie pliku (np .txt, .png, .jpg)"), 0, 1);
@@ -119,43 +115,32 @@ public class ChangeOneStringOfBytesToSecond extends Application {
         rootNode.add(fourthValue, 1, 3);
 
 
+
+        rootNode.setStyle("-fx-font-size: 18px; -fx-font-weight: 900;"); // zmiana rozmiaru czcionki i jej pogrubienie
+
+
+
+
+
         Button executiveButton = new Button("Wykonaj");
+        executiveButton.setStyle("-fx-font-size: 20pt;");
+
         rootNode.add(executiveButton, 1, 6);
 
-
-
+        // akcja
         executiveButton.setOnAction(e -> {
 
             final String directory = "c:\\";
             listFilesAndFilesSubDirectories(directory, firstValue, secondValue, thirdValue, fourthValue);
             System.out.println("koniec");
-//            popup.show(stage2);
 
-//            final Popup popup = new Popup();
-            popup.setAutoFix(true);
-            popup.setAutoHide(true);
-            popup.setHideOnEscape(true);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Sukces!");
+            alert.setContentText("Pomyslnie dokonano zmiany");
 
-            Stage popupwindow=new Stage();
-
-            popupwindow.initModality(Modality.APPLICATION_MODAL);
-            popupwindow.setTitle("This is a pop up window");
-
-            Label label1= new Label("Pop up window now displayed");
+            alert.showAndWait();
 
 
-            VBox layout= new VBox(10);
-
-
-//            layout.getChildren().addAll(label1, button1);
-
-            layout.setAlignment(Pos.CENTER);
-
-            Scene scene1= new Scene(layout, 300, 250);
-
-            popupwindow.setScene(scene1);
-
-            popupwindow.showAndWait();
         });
 
         myStage.setScene(myScene);

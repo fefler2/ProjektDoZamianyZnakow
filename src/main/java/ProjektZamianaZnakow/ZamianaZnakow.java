@@ -90,6 +90,7 @@ public class ZamianaZnakow extends Application {
 
 
 
+                    // co tutaj dalej zrobic
 
 
                     Files.walk(Paths.get("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow"))
@@ -121,6 +122,7 @@ public class ZamianaZnakow extends Application {
                                     outStream.writeUTF(contents2);
 
                                     outStream.close();
+
                                 } catch (Exception e1) {
                                     e1.printStackTrace();
                                 }

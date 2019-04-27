@@ -101,8 +101,8 @@ public class ZamianaZnakow extends Application {
 //                            .forEach( path -> {
 //                                FileOutputStream fos = null;
                                 try {
-                                    String contents = new String(Files.readAllBytes(Paths.get(filePath)));
-                                    System.out.println( contents); // plik wczytany do Stringa
+                                    String contents = new String(Files.readAllBytes(Paths.get(filePath))); // plik wczytany do Stringa
+//                                    System.out.println( contents);
                                     String contents2 = contents.replace(newString, oldString); // nowa zamieniona wartosc
 //                System.out.println("przed: " +contents2);
 

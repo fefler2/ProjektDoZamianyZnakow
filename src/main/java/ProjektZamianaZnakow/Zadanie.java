@@ -9,9 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import java.io.BufferedOutputStream;
@@ -26,12 +23,12 @@ Program bedzie sprzedawany wielu uzytkownikom. Zrobic program, ktory przyjmuje 4
 1. nazwe przeszukiwanego katalogu
  */
 
-public class ChangeOneStringOfBytesToSecond extends Application {
+public class Zadanie extends Application {
 
 
     public void listFilesAndFilesSubDirectories(String directoryName, TextField firstValue, TextField secondValue, TextField thirdValue, TextField fourthValue) {
 
-        File directory = new File(directoryName);
+        File directory = new File(firstValue.getText());
         String filePath = firstValue.getText() + "." + secondValue.getText();
         String newString = thirdValue.getText();
         String oldString = fourthValue.getText();
@@ -46,11 +43,11 @@ public class ChangeOneStringOfBytesToSecond extends Application {
 
             try {
                 if (file.isFile()) {
-                    if (file.getName().equals(filePath)) {
+                    if (file.getName().endsWith(".txt")) {
 
                         try {
 
-                            String contents = new String(Files.readAllBytes(Paths.get(filePath)));
+                            String contents = new String(Files.readAllBytes(Paths.get(String.valueOf(directory))));
                             String contents2 = contents.replace(newString, oldString);
 
                             FileOutputStream fos = null;
@@ -85,14 +82,6 @@ public class ChangeOneStringOfBytesToSecond extends Application {
     public void start(Stage myStage) {
 
         myStage.setTitle("Zamiana ciagu bajtow");
-
-        Stage stage2 = new Stage();
-        stage2.setTitle("Abc");
-        Popup popup = new Popup();
-//        popup.
-//        popup.setX(200);
-//        popup.setY(140);
-
 
         GridPane rootNode = new GridPane();
         rootNode.setPadding(new Insets(15));
@@ -129,39 +118,11 @@ public class ChangeOneStringOfBytesToSecond extends Application {
             final String directory = "c:\\";
             listFilesAndFilesSubDirectories(directory, firstValue, secondValue, thirdValue, fourthValue);
             System.out.println("koniec");
-//            popup.show(stage2);
-
-//            final Popup popup = new Popup();
-            popup.setAutoFix(true);
-            popup.setAutoHide(true);
-            popup.setHideOnEscape(true);
-
-            Stage popupwindow=new Stage();
-
-            popupwindow.initModality(Modality.APPLICATION_MODAL);
-            popupwindow.setTitle("This is a pop up window");
-
-            Label label1= new Label("Pop up window now displayed");
-
-
-            VBox layout= new VBox(10);
-
-
-//            layout.getChildren().addAll(label1, button1);
-
-            layout.setAlignment(Pos.CENTER);
-
-            Scene scene1= new Scene(layout, 300, 250);
-
-            popupwindow.setScene(scene1);
-
-            popupwindow.showAndWait();
         });
 
         myStage.setScene(myScene);
 
         myStage.show();
-
     }
 
     public static void main(String[] args) {

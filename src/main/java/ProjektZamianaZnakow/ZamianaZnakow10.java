@@ -11,17 +11,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import org.apache.commons.io.FileUtils;
+//import org.apache.commons.io.FileUtils;
 
-import java.awt.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Collection;
-import java.util.Iterator;
-
-import java.io.*;
-import java.util.HashSet;
 
 public class ZamianaZnakow10 extends Application {
 
@@ -40,10 +34,9 @@ public class ZamianaZnakow10 extends Application {
         for (File file : fList) {
 
 
-
             try {
                 if (file.isFile()) {
-                    if (file.getName().equals(filePath)){
+                    if (file.getName().equals(filePath)) {
                         System.out.println(file.getName());
 
 
@@ -71,9 +64,8 @@ public class ZamianaZnakow10 extends Application {
 //                            }
 
 
-
                             String contents = new String(Files.readAllBytes(Paths.get(filePath))); // string
-                            String contents2 = contents.replace(newString, oldString); // zmieniony
+                            String contents2 = contents.replace(newString, oldString); // zmieniony string
 
 
                             FileOutputStream fos = null;
@@ -85,31 +77,31 @@ public class ZamianaZnakow10 extends Application {
                             outStream.writeUTF(contents2); // wpisanie
 
                             outStream.close(); // zamkniecie
+
                             System.out.println("operacja wykonana");
 
-                        }
-                        catch (Exception e22){
-             e22.printStackTrace();
+                        } catch (Exception e22) {
+                            e22.printStackTrace();
                         }
 
 
-                            ////
+                        ////
 //                            PrintWriter pw = new PrintWriter(filePath);
 //
 //                            BufferedReader br2 = new BufferedReader(new FileReader(filePath));
 //
 //                            String line2 = br2.readLine();
 
-                        }
-
-
                     }
+
+
+                }
 //                    System.out.println(file.getName());
 
-                    //
+                //
 //                    System.out.println(file.getAbsolutePath()); // pokazuje sciezke
 
-                 else if (file.isDirectory() && file.isDirectory()) {
+                else if (file.isDirectory()) {
                     listFilesAndFilesSubDirectories(file.getAbsolutePath(), firstValue, secondValue, thirdValue, fourthValue);
                 }
 
@@ -162,9 +154,9 @@ public class ZamianaZnakow10 extends Application {
 
         executiveButton.setOnAction(e -> {
 
-//            final String directory = "C:\\";
+            final String directory = "C:";
 
-//            listFilesAndFilesSubDirectories(directory, firstValue, secondValue, thirdValue, fourthValue);
+            listFilesAndFilesSubDirectories(directory, firstValue, secondValue, thirdValue, fourthValue);
 //            File directory = new File(directoryName);
 
             //

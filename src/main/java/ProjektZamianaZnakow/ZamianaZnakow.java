@@ -92,13 +92,14 @@ public class ZamianaZnakow extends Application {
 
                     // co tutaj dalej zrobic
 
+                    FileOutputStream fos = null;
 
-                    Files.walk(Paths.get("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow"))
-                            .filter(p -> p.toString().equals(filePath))
-                            .map(p -> p.getParent().getParent())
-                            .distinct()
-                            .forEach( path -> {
-                                FileOutputStream fos = null;
+//                    Files.walk(Paths.get("C:\\Users\\Maciej\\Desktop\\Java Projects3\\zamianaZnakow"))
+//                            .filter(p -> p.toString().equals(filePath))
+//                            .map(p -> p.getParent().getParent())
+//                            .distinct()
+//                            .forEach( path -> {
+//                                FileOutputStream fos = null;
                                 try {
                                     String contents = new String(Files.readAllBytes(Paths.get(filePath)));
                                     System.out.println( contents); // plik wczytany do Stringa
@@ -135,7 +136,6 @@ public class ZamianaZnakow extends Application {
 
                                     Collection files = FileUtils.listFiles(root, null, true);
 
-
                                     fos = new FileOutputStream(filePath);
 
                                     DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
@@ -151,7 +151,7 @@ public class ZamianaZnakow extends Application {
 
 
 
-                            });
+//                            });
 
 
 //                    for (Iterator iterator = files.iterator(); iterator.hasNext();) {

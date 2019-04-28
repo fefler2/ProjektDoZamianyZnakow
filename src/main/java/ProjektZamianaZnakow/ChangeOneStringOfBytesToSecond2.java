@@ -25,13 +25,19 @@ Program bedzie sprzedawany wielu uzytkownikom. Zrobic program, ktory przyjmuje 4
 1. nazwe przeszukiwanego pliku, 2.
  */
 
-public class ChangeOneStringOfBytesToSecond extends Application {
+
+// !!!!!!!!!!!!
+// !!!!!!!!!!!!
+// !!!!!!!!!!!!
+// !!!!!!!!!!!!
+
+public class ChangeOneStringOfBytesToSecond2 extends Application {
 
 
     public void listFilesAndFilesSubDirectories(String directoryName, TextField firstValue, TextField secondValue, TextField thirdValue, TextField fourthValue) {
 
         File directory = new File(directoryName);
-        String filePath = firstValue.getText() + "." + secondValue.getText();
+//        String filePath = firstValue.getText() + "." + secondValue.getText();
         String newString = thirdValue.getText();
         String oldString = fourthValue.getText();
 
@@ -39,6 +45,8 @@ public class ChangeOneStringOfBytesToSecond extends Application {
 
         File[] fList = directory.listFiles();
 
+        String s = firstValue.getText();
+        String s2 = secondValue.getText();
 
         assert fList != null; // zeby nie bylo NullPointerException
         for (File file : fList) {
@@ -46,11 +54,12 @@ public class ChangeOneStringOfBytesToSecond extends Application {
 
             try {
                 if (file.isFile()) {
-                    if (file.getName().equals(filePath)) {
+                    if (file.getName().endsWith(s2)) {
 
                         try {
 
-                            String contents = new String(Files.readAllBytes(Paths.get(filePath))); // zamienienie pliku na Stringa
+                            System.out.println(file.getPath());
+                            String contents = new String(Files.readAllBytes(Paths.get(file.getPath()))); // zamienienie pliku na Stringa
                             String contents2 = contents.replace(newString, oldString); // String po zamianie znakow
 
                             FileOutputStream fos = null;
@@ -98,7 +107,7 @@ public class ChangeOneStringOfBytesToSecond extends Application {
         Scene myScene = new Scene(rootNode, 900, 350);
 
         // tworzenie przyciskow
-        rootNode.add(new Label("Wprowadz nazwe pliku jaki chcesz przeszukac (bez rozszerzenia)"), 0, 0);
+        rootNode.add(new Label("Wprowadz nazwe katalogu, w ktorym chcesz dokonac zmiany"), 0, 0);
         TextField firstValue = new TextField();
 
         rootNode.add(firstValue, 1, 0);
@@ -131,9 +140,10 @@ public class ChangeOneStringOfBytesToSecond extends Application {
         // akcja po nacisnieciu
         executiveButton.setOnAction(e -> {
 
-            final String directory = "c:\\";
+
+            String directory = firstValue.getText();
             listFilesAndFilesSubDirectories(directory, firstValue, secondValue, thirdValue, fourthValue);
-            System.out.println("koniec");
+//            System.out.println("koniec");
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("Sukces!");
